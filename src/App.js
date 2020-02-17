@@ -1,28 +1,27 @@
 import React from 'react';
 import Start from './screens/ScreenStart';
 import Create from './screens/ScreenCreateList';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
-let visited = localStorage["alreadyVisited"];
+let visited = localStorage['alreadyVisited'];
 
 console.log(visited);
 
-function App () {
+const App = () => (
   <BrowserRouter>
-    return (
-    if (visited) {
+    {visited ? (
       <div className="App" id="root">
         <Create />
       </div>
-    } else {
-      localStorage["alreadyVisited"] = true,
-      <div className="App" id="root">
-        <Start />
-      </div>
-    }
-    );
+    ) : (
+      (localStorage['alreadyVisited'] = true ? (
+        <div className="App" id="root">
+          <Start />
+        </div>
+      ) : null)
+    )}
   </BrowserRouter>
-}
+);
 
 export default App;
