@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import Start from './screens/ScreenStart';
+import Create from './screens/ScreenCreateList';
+import { BrowserRouter } from 'react-router-dom'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+let visited = localStorage["alreadyVisited"];
+
+console.log(visited);
+
+function App () {
+  <BrowserRouter>
+    return (
+    if (visited) {
+      <div className="App" id="root">
+        <Create />
+      </div>
+    } else {
+      localStorage["alreadyVisited"] = true,
+      <div className="App" id="root">
+        <Start />
+      </div>
+    }
+    );
+  </BrowserRouter>
 }
 
 export default App;
