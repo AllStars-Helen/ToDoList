@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from "styled-components";
+import styled from 'styled-components';
 import logo from './../logo.svg';
 
 const Title = styled.title`
@@ -8,13 +8,11 @@ const Title = styled.title`
   color: white;
 `;
 
-function Header () {
-    return (
-        <div>
-            <img src={logo} className="App-logo" alt="logo" />
-            <Title>ToDo List that you've never met!</Title>
-        </div>
-    )
-}
+const Header = () => (
+    <div>
+        <img src={logo} className="App-logo" alt="logo" />
+        <Title>ToDo List that you've never met!</Title>
+    </div>
+)
 
 export default Header;

@@ -6,8 +6,6 @@ import './App.css';
 
 let visited = localStorage['alreadyVisited'];
 
-console.log(visited);
-
 const App = () => (
   <BrowserRouter>
     {visited ? (
