@@ -1,4 +1,21 @@
 import React from "react";
+import styled from "styled-components";
+import Button from "../components/Button";
+
+const InputStyle = styled.input.attrs(props => ({
+  type: "text"
+}))`
+  width: calc(100% - 125px);
+  max-width: 500px;
+  padding: 0 15px;
+  border-radius: 4px;
+  background: #fff;
+  color: steelblue;
+  border: 2px solid steelblue;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  font: bold 30px Caveat;
+`;
 
 class TaskCreator extends React.Component {
   constructor(props) {
@@ -9,8 +26,8 @@ class TaskCreator extends React.Component {
   }
 
   handleChange = e => {
+    e.preventDefault();
     const value = e.target.value;
-
     this.setState({
       ...this.state,
       newTaskName: value
@@ -27,15 +44,16 @@ class TaskCreator extends React.Component {
 
   render() {
     return (
-      <form>
-        <input
+      <form style={{ display: "flex", margin: "40px 0 0" }}>
+        <InputStyle
           type="text"
           onChange={this.handleChange}
           value={this.state.newTaskName}
         />
-        <button type="button" onClick={this.onSubmitTask}>
-          Create
-        </button>
+        <Button
+          SubmitFunction={this.onSubmitTask}
+          Text="Create new task!"
+        ></Button>
       </form>
     );
   }

@@ -1,5 +1,14 @@
 import React from "react";
+import Checkbox from "../components/Checkbox";
 import propTypes from "prop-types";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
+`;
 
 export default class Task extends React.Component {
   constructor() {
@@ -18,7 +27,12 @@ export default class Task extends React.Component {
 
   render() {
     const { name, id, status } = this.props;
-    return <div>{name}</div>;
+    return (
+      <Wrapper>
+        <label>{name}</label>
+        <Checkbox setTaskStatus={this.setTaskStatus}></Checkbox>
+      </Wrapper>
+    );
   }
 }
 
